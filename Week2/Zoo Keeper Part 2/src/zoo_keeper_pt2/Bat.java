@@ -1,10 +1,9 @@
 package zoo_keeper_pt2;
 
 public class Bat extends Mammal {
-	private int energyLevel = 300;
 	
-	public int getEnergy() {
-		return energyLevel;
+	public Bat() {
+		super(300);
 	}
 	
 	public void fly() {

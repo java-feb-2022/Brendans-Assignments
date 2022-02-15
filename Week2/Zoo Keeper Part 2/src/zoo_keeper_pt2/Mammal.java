@@ -7,4 +7,8 @@ public class Mammal {
 		System.out.println("Animal has " + energyLevel + " energy left.");
 		return energyLevel;
 	}
+	
+	public Mammal(int energyLevel) {
+		this.energyLevel = energyLevel;
+	}
 }

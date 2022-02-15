@@ -13,7 +13,6 @@ public class BatTest {
 		b.fly();
 		b.fly();
 		
-		int energy =b.getEnergy();
-		System.out.println(energy);
+		b.displayEnergy();
 	}
 }

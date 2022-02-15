@@ -2,6 +2,10 @@ package zoo_keeper_pt2;
 
 public class Gorilla extends Mammal {
 	
+	public Gorilla() {
+		super(100);
+	}
+	
 	public void throwSomething() {
 		System.out.println("The Gorilla has thrown something...");
 		energyLevel -= 5;
