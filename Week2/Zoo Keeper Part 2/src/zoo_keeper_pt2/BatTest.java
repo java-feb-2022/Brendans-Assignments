@@ -1,0 +1,19 @@
+package zoo_keeper_pt2;
+
+public class BatTest {
+	public static void main(String[] args) {
+		
+		Bat b = new Bat();
+		
+		b.attackTown();
+		b.attackTown();
+		b.attackTown();
+		b.eatHumans();
+		b.eatHumans();
+		b.fly();
+		b.fly();
+		
+		int energy =b.getEnergy();
+		System.out.println(energy);
+	}
+}
