@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.container {
+	margin: 40px;
+	padding: 40px;
+	font-family: sans-serif;
+	background-color: green;
+}
+
+h1 {
+	color: rebeccapurple;
+	margin: 10px;
+}
+
+.table {
+	background-color: white;
+}
