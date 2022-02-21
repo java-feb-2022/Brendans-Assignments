@@ -1,18 +1,13 @@
 package com.codingdojo.demoSpring;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/hello")
+@Controller
 public class HomeController {
-	@RequestMapping("")
-	public String hello() {
-		return "Hello World!";
-	}
-	
-	@RequestMapping("/world") 
-	public String world() {
-		return "Class level annotations are cool too!";
-	}
+	@RequestMapping("/") 
+		public String home() {
+			return "demo.jsp";
+		}
 }
+	
