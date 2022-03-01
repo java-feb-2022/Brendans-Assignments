@@ -12,5 +12,23 @@
 
 <h1>Discover extraordinary NFTs</h1>
 
+<table class="table table-dark table-hover">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${arts}" var="art">
+		<tr>
+			<td><c:out value="${art.title}"/></td>
+			<td><c:out value="${art.description}"/></td>
+		</tr>
+	</c:forEach>
+	</tbody>
+		
+</table>
+
 </body>
 </html>
