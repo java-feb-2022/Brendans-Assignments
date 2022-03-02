@@ -1,6 +1,7 @@
 package com.codingdojo.savetravels.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,21 @@ public class ExpenseService {
 	
 	// Create Expense
 	public Expense createExpense(Expense newExpense) {
+		return expenseRepo.save(newExpense);
+	}
+
+	// finds Expense
+	public Expense findExpense(Long id) {
+		Optional<Expense> optionalExpense = expenseRepo.findById(id);
+		if(optionalExpense.isPresent()) {
+			return optionalExpense.get();
+		} else {
+			return null;
+		}
+	}
+	
+	// Update expense
+	public Expense updateExpense(Expense newExpense) {
 		return expenseRepo.save(newExpense);
 	}
 }
