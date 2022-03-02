@@ -27,16 +27,16 @@
 			<tbody>
 			<c:forEach items="${expenses}" var="exp">
 				<tr>
-					<td><c:out value="${exp.name}"/></td>
+					<td><a href="/expenses/show/${exp.id}" class="text-info"><c:out value="${exp.name}"/></a></td>
 					<td><c:out value="${exp.vendor}"/></td>
 					<td><c:out value="${exp.amount}"/></td>
-					<td><a href="/expenses/edit/${exp.id}">Edit</a></td>
+					<td><a href="/expenses/edit/${exp.id}" class="text-warning">Edit</a> | <a href="/expenses/delete/${exp.id}" class="text-danger">Delete</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<div class="container">
+	<div class="container bg-dark text-light">
 		<h1>Add an Expense:</h1>
 		<form:form action="/expenses" method="post" modelAttribute="expense"
 			class="form-group">
@@ -52,7 +52,7 @@
 			<form:label path="description">Description:</form:label>
 			<form:errors path="description" class="text-danger" />
 			<form:input path="description" class="form-control" />
-			<input type="submit" value="Submit" class="my-2 btn btn-primary" />
+			<input type="submit" value="Submit" class="my-2 btn btn-success" />
 		</form:form>
 	</div>
 </body>
