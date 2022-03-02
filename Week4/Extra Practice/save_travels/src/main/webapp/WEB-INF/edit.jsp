@@ -12,7 +12,7 @@
 <title>Edit Expense</title>
 </head>
 <body>
-<div class="container">
+<div class="container mx-auto">
 		<h1>Edit an Expense:</h1>
 		<form:form action="/expenses/${expense.id}" method="post" modelAttribute="expense"
 			class="form-group">
@@ -29,8 +29,9 @@
 			<form:label path="description">Description:</form:label>
 			<form:errors path="description" class="text-danger" />
 			<form:input path="description" class="form-control" />
-			<input type="submit" value="Submit" class="my-2 btn btn-primary" />
+			<input type="submit" value="Submit" class="my-2 btn btn-success" />
 		</form:form>
+		<a href="/expenses">Go Back</a>
 	</div>
 </body>
 </html>
