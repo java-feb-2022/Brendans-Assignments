@@ -30,7 +30,16 @@ public class ArtService {
 	public Art createArt(Art newArt) {
 		return artRepo.save(newArt);
 	}
+	// Art Details
+	public Art artDetails(Long id) {
+		return artRepo.findById(id).orElse(null);
+	}
 	// Update Art
-	
+	public Art updateArt(Art updatedArt) {
+		return artRepo.save(updatedArt);
+	}
 	// Delete Art
+	public void delete(Long id) {
+		artRepo.deleteById(id);
+	}
 }

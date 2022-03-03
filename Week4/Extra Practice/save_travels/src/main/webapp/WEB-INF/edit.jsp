@@ -14,7 +14,7 @@
 <body>
 <div class="container mx-auto">
 		<h1>Edit an Expense:</h1>
-		<form:form action="/expenses/${expense.id}" method="post" modelAttribute="expense"
+		<form:form action="/expenses/${expense.id}" method="put" modelAttribute="expense"
 			class="form-group">
 			<input type="hidden" name="_method" value="put"/>
 			<form:label path="name">Expense Name:</form:label>

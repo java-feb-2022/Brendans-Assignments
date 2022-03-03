@@ -16,11 +16,11 @@ public class Art {
 	private Long id;
 	
 	@NotNull
-	@Size(min=5,max=40)
+	@Size(min=5,max=40, message="Title must be at least 5 characters.")
 	private String title;
 	
 	@NotNull
-	@Size(min=5,max=200)
+	@Size(min=5,max=200, message="Description must be at least 5 characters.")
 	private String description;
 
 	public Long getId() {

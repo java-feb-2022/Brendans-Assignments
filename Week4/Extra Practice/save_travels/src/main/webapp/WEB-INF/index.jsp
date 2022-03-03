@@ -15,7 +15,7 @@
 	<div
 		class="container d-flex flex-column justify-content-center align-items-center">
 		<h1>Save Travels</h1>
-		<table class="table table-dark table-hover">
+		<table class="table table-dark table-hover text-center">
 			<thead>
 				<tr>
 					<th>Expense</th>
@@ -30,7 +30,12 @@
 					<td><a href="/expenses/show/${exp.id}" class="text-info"><c:out value="${exp.name}"/></a></td>
 					<td><c:out value="${exp.vendor}"/></td>
 					<td><c:out value="${exp.amount}"/></td>
-					<td><a href="/expenses/edit/${exp.id}" class="text-warning">Edit</a> | <a href="/expenses/delete/${exp.id}" class="text-danger">Delete</a></td>
+					<td>
+					<a href="/expenses/edit/${exp.id}" class="text-warning">Edit</a>
+					<form:form action="/expenses/delete/${exp.id}" method="delete">
+						<button class="btn btn-danger">Delete</button>
+					</form:form>
+					</td>
 				</tr>
 			</c:forEach>
 			</tbody>
