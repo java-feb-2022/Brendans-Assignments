@@ -25,6 +25,8 @@
 			<form:label path="thoughts">My Thoughts:</form:label>
 			<form:errors path="thoughts" class="text-danger"/>
 			<form:input path="thoughts" class="form-control"/>
+			<form:errors path="user" class="text-danger"/>
+			<form:input type="hidden" path="user" value="${user.id}" class="form-control"/>
 			<input type="submit" value="Add Book" class="btn btn-success my-2">
 			<a href="/home" class="btn btn-warning">Back to the Shelves</a>
 		</form:form>

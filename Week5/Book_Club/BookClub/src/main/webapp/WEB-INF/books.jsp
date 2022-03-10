@@ -16,7 +16,7 @@
 	<div class="container justify-content-center align-items-center d-flex flex-column">
 		<h1>
 			Welcome,
-			<c:out value="${userLog.name}"/>
+			<c:out value="${user.name}"/>
 		</h1>
 		<p>Books from everyone's shelves:</p>
 		<a href="/books/new">+ Add a book to my shelf!</a>
@@ -30,14 +30,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%-- <c:forEach var="" items=""> --%>
+				<c:forEach var="book" items="${books}">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><c:out value="${book.id}"/></td>
+					<td><a href="books/${book.id}"><c:out value="${book.title}"/></a></td>
+					<td><c:out value="${book.author}"/></td>
+					<td><c:out value="${book.user.name}"/></td>
 				</tr>
-				<%-- </c:forEach> --%>
+				</c:forEach>
 			</tbody>
 		</table>
 		<a href="/logout" class="btn btn-danger">Logout</a>

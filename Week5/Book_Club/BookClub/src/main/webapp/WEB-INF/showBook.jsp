@@ -11,10 +11,13 @@
 <title>Show Selected Book</title>
 </head>
 <body>
-	<div>
+	<div class="container justify-content-center align-items-center d-flex flex-column">
 		<h1><i><c:out value="${book.title}"/></i></h1>
 		<!-- need to add info about person and other things -->
-		<h3><%-- <c:out value="${ } --%></h3>
+		<h3><span class="text-danger"><c:out value="${book.user.name}"/></span> read <span class="text-primary"><c:out value="${book.title}"/></span> by <span class="text-success"><c:out value="${book.author}"/></span>.</h3>
+		<h3>Here are <c:out value="${book.user.name}"/>'s thoughts:</h3>
+		<p><c:out value="${book.thoughts}"/></p>
+		<a href="/home" class="btn btn-warning my-2">Back to the Shelves</a>
 	</div>
 </body>
 </html>

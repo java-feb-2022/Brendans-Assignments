@@ -7,6 +7,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+//import org.springframework.validation.Errors;
 
 import com.codingdojo.BookClub.models.LoginUser;
 import com.codingdojo.BookClub.models.User;
@@ -25,6 +26,18 @@ public class UserService {
 		User user = userRepo.findById(id).orElse(null);
 		return user;
 	}
+	
+//	Alternative validation process for greater modularity
+//	public void validate(User newUser, Errors errors) {
+//		if(!newUser.getPassword().equals(newUser.getConfirm())) {
+//			errors.rejectValue("password", "Mismatch", "Passwords do not match!");
+//		}
+//		
+//		if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
+//			errors.rejectValue("email", "Unique", "Email is already in use.");
+//		}
+//	}
+	
 	
 	public User register(User newUser, BindingResult result) {
 		// TO-DO - Reject values or register if no errors:

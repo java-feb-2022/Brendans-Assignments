@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.codingdojo.BookClub.models.Book;
 import com.codingdojo.BookClub.models.LoginUser;
 import com.codingdojo.BookClub.models.User;
+import com.codingdojo.BookClub.repositories.BookRepository;
 import com.codingdojo.BookClub.services.BookService;
 import com.codingdojo.BookClub.services.UserService;
 
@@ -41,9 +42,8 @@ public class HomeController {
 		if(session.getAttribute("user_id") == null) {
 			return "redirect:/";
 		}
-		Long userId = (Long) session.getAttribute("user_id");
-		User userLog = userServ.getUser(userId);
-		model.addAttribute("userLog",userLog);
+		model.addAttribute("books", bookServ.getAllBooks());
+		model.addAttribute("user", userServ.getUser((Long)session.getAttribute("user_id")));
 		return "books.jsp";
 	}
 	
@@ -70,22 +70,33 @@ public class HomeController {
 	}
 	
 	@GetMapping("/books/new")
-	public String newBook(HttpSession session, Model model) {
+	public String newBook(@ModelAttribute("book") Book book, HttpSession session, Model model) {
 		if(session.getAttribute("user_id") == null) {
 			return "redirect:/";
 		}
+		User user = userServ.getUser((Long)session.getAttribute("user_id"));
+		model.addAttribute("user",user);
 		model.addAttribute("newBook", new Book());
 		return "newBook.jsp";
 	}
 	
 	@PostMapping("/create/book")
 	public String createBook(@Valid @ModelAttribute("newBook") Book newBook, BindingResult result, Model model) {
-		return "redirect:/home";
+		if(result.hasErrors()) {
+			return "newBook.jsp";
+		} else {
+			bookServ.createBook(newBook);
+			return "redirect:/home";
+		}
 	}
 	
 	@GetMapping("/books/{id}")
-	public String showBook(@PathVariable("id") Long id, Model model) {
+	public String showBook(@PathVariable("id") Long id, Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null) {
+			return "redirect:/";
+		}
 		model.addAttribute("book",bookServ.getBook(id));
+		model.addAttribute("user", userServ.getUser((Long)session.getAttribute("user_id")));
 		return "showBook.jsp";
 	}
 	
