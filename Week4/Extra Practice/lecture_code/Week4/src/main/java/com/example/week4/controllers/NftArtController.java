@@ -50,7 +50,7 @@ public class NftArtController {
 		model.addAttribute("editArt",editArt);
 		return "edit.jsp";
 	}
-	
+	// for updating information
 	@PutMapping("/update/{id}")
 	public String update(@ModelAttribute("editArt") Art art) {
 		artService.updateArt(art);

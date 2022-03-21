@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.codingdojo.BookClub.models.Book;
 import com.codingdojo.BookClub.models.LoginUser;
 import com.codingdojo.BookClub.models.User;
-import com.codingdojo.BookClub.repositories.BookRepository;
 import com.codingdojo.BookClub.services.BookService;
 import com.codingdojo.BookClub.services.UserService;
 
