@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.user.projects.models.Project;
+import com.user.projects.models.Rating;
 import com.user.projects.models.User;
 import com.user.projects.repositories.ProjectRepository;
+import com.user.projects.repositories.RatingRepository;
 
 @Service
 public class ProjectService {
 
 	@Autowired
 	private ProjectRepository projectRepo;
+	
+	@Autowired
+	private RatingRepository ratingRepo;
 
 	// List all projects
 	public List<Project> allProjects() {
@@ -57,5 +62,10 @@ public class ProjectService {
 		List<User> likers = project.getLikers();
 		likers.remove(user);
 		projectRepo.save(project);
+	}
+	
+	// Rating
+	public void createRating(Rating newRating) {
+		ratingRepo.save(newRating);
 	}
 }

@@ -52,6 +52,9 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name = "project_id"))
 	private List<Project> projectLiked;
   
+    
+    @OneToMany(mappedBy="ratedBy",fetch=FetchType.LAZY)
+	private List<Rating> ratings;
 
 	public Long getId() {
 		return id;
@@ -107,6 +110,14 @@ public class User {
 
 	public void setProjectLiked(List<Project> projectLiked) {
 		this.projectLiked = projectLiked;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
      
 }

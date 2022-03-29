@@ -21,6 +21,15 @@
 	<p>${project.description}</p>
 	<h4>Created By:</h4>
 	<p>${project.user.userName}</p>
+	
+	<h2>Ratings:</h2>
+	<form:form action="/projects/rating" method="put" modelAttribute="newRating">
+	    <div class="form-group">
+	        <form:label path="rating">Rating:</form:label>
+	        <form:errors class="text-danger" path="rating"/>
+	        <form:input class="form-control" path="rating"/>
+	    </div>
+	</form:form>
 	<!-- check for viewing user to allow for edit/delete if they are the owner -->
 	<c:if test="${project.user.id==loggedInUser.id}">
 		<a href="/projects/edit/${project.id}">Edit</a>
